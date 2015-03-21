@@ -28,7 +28,7 @@ class Pessoa extends CI_Controller
 
 	public function adicionar($id = null)
 	{
-		$dados['page'] = 'pessoa/editar';
+		$dados['page'] = 'pessoa/adicionar';
 		$dados['estados'] = $this->cidades->listar_estados();
 		if ($id === null) {
 			$dados['titulo'] = 'Pessoas - Cadastrar';
