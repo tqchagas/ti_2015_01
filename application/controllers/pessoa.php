@@ -1,12 +1,14 @@
 <?php
 
-class Pessoa extends CI_Controller {
+class Pessoa extends CI_Controller 
+{
 
 	public function __construct() 
 	{
 		parent::__construct();
 		$this->load->model('Pessoas_model', 'pessoas');
 		$this->load->model('Enderecos_model', 'enderecos');
+		$this->load->model('Cidades_model', 'cidades');
 	}
 
 	public function index()
@@ -23,8 +25,9 @@ class Pessoa extends CI_Controller {
 		$this->load->view('pessoa/visualizar', $dados);
 	}
 
-	public function adicionar($id = null) 
+	public function adicionar($id = null)
 	{
+		$dados['estados'] = $this->cidades->listar_estados();
 		if ($id === null) {
 			$dados['titulo'] = 'Pessoas - Cadastrar';
 			$this->load->view('pessoa/adicionar', $dados);
@@ -33,6 +36,13 @@ class Pessoa extends CI_Controller {
 			$dados['pessoa'] = $this->pessoas->listar_pessoas($id);
 			$this->load->view('pessoa/editar', $dados);
 		}
+	}
+
+	public function listar_cidades($id) 
+	{
+		$cidades = $this->cidades->listar_cidades($id);
+		echo json_encode($cidades);
+		return;
 	}
 
 	public function cadastrar() 
@@ -53,9 +63,9 @@ class Pessoa extends CI_Controller {
 		$data['endereco']['cidade_id']     = $this->input->post('cidade_id');
 		$data['endereco']['estado_id']     = $this->input->post('estado_id');
 		$data['endereco']['pais']          = $this->input->post('pais');
-
+		$codigo_endereco                   = $this->enderecos->cadastrar($data['endereco']);
+		$data['pessoa']['endereco_id']     = $codigo_endereco;
 		$this->pessoas->cadastrar($data['pessoa']);
-		$this->enderecos->cadastrar($data['endereco']);
 	}
 
 	public function atualizar() 
@@ -77,6 +87,9 @@ class Pessoa extends CI_Controller {
 		$data['endereco']['estado_id']     = $this->input->post('estado_id');
 		$data['endereco']['pais']          = $this->input->post('pais');
 
+		echo $data['endereco']['cidade_id'];
+		echo $data['endereco']['estado_id'];
+		die();
 		$this->pessoas->cadastrar($data['pessoa']);
 		$this->enderecos->cadastrar($data['endereco']);
 	}

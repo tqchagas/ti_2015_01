@@ -6,6 +6,14 @@ class Enderecos_model extends CI_Model {
 	}
 
 	public function cadastrar($data) {
-		$this->db->insert('endereco', $data);
+		if(isset($data['id'])) {
+			$this->db->where('id', $data['id']);
+			$this->db->update('endereco', $data);
+		} else 
+		{
+			$this->db->insert('endereco', $data);
+			return $this->db->insert_id();
+		}
+		
 	}
 }
