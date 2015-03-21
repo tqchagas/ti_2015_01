@@ -22,4 +22,15 @@ class Moradores_model extends CI_Model {
 			return false;
 		}
 	}
+
+	// verifica se existe algum morador associado a pessoa
+	public function morador_associado_pessoa($pessoa_id) {
+		$this->db->where('pessoa_id', $pessoa_id);
+		$this->db->from('morador');
+		if ($this->db->count_all_results() > 0 ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

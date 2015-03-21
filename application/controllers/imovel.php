@@ -32,10 +32,7 @@ class Imovel extends CI_Controller {
 	}
 
 	public function cadastrar() {
-		//$this->load->library('form_validation');
 		$data['id'] = $this->input->post('id');
-		echo $data['id'];
-		die();
 		$data['numero'] = $this->input->post('numero');
 		$data['bloco'] = $this->input->post('bloco');
 		$data['quantidade_vagas'] = $this->input->post('quantidade_vagas');

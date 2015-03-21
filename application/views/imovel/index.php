@@ -20,6 +20,6 @@
 			<?php endforeach ?>
 		</table>
 
-		<b><?php print_r($this->session->flashdata('naoExclusao')); ?></b>
+		<b><?php print_r($this->session->flashdata('naoExclusaoImovel')); ?></b>
 	</body>
 </html>

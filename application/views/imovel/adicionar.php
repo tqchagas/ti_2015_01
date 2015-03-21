@@ -7,8 +7,6 @@
 <body>
     <?php echo form_open('imovel/cadastrar'); ?>
 
-    <input type="hidden" name="name" value="<?php echo set_value('id'); ?>" />
- 
     <input type="text" name="numero" value="<?php echo set_value('numero'); ?>"/>
 
     <input type="text" name="bloco" value="<?php echo set_value('email'); ?>"/>
