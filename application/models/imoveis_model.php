@@ -3,6 +3,7 @@ class Imoveis_model extends CI_Model {
 
 	function __construct() {
 		parent::__construct();
+		$this->load->library('session');
 	}
 
 	public function listar_imoveis($id = null) {
@@ -19,12 +20,12 @@ class Imoveis_model extends CI_Model {
 
 	public function deletar($id) {
 		$this->load->model('moradores_model', 'moradores');
-		$numeroMoradoresImovel = $this->moradores->contar_morador_imovel($id);
-		if ($numeroMoradoresImovel > 0) {
-			return -1;
-		}
-		else {
+		$imovel_ocupado = $this->moradores->imovel_ocupado($id);
+		if (!$imovel_ocupado) {
 			$this->db->delete('imovel', array('id' => $id));
+		} else {
+			$this->session->set_flashdata('naoExclusao', 'Não foi possível excluir pois o imóvel possui morador associado.');
+			redirect('/imovel/', 'refresh');
 		}
 	}
 }

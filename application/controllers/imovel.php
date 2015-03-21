@@ -1,13 +1,11 @@
 <?php
 
-
 class Imovel extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('Imoveis_model', 'imoveis');
 	}
-
 
 	public function index()
 	{

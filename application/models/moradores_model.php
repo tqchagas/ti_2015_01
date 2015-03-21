@@ -13,9 +13,13 @@ class Moradores_model extends CI_Model {
 		return $this->db->get()->result();
 	}
 
-	public function contar_morador_imovel($imovel_id) {
+	public function imovel_ocupado($imovel_id) {
 		$this->db->where('imovel_id', $imovel_id);
 		$this->db->from('morador');
-		return $this->db->count_all_results();
+		if ($this->db->count_all_results() > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
