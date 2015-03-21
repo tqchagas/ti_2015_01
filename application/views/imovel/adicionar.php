@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
 </head>
 <body>
-    <?php echo form_open('imovel/adicionar'); ?>
+    <?php echo form_open('imovel/cadastrar'); ?>
  
     <input type="text" name="numero" value="<?php echo set_value('nome'); ?>"/>
 
@@ -13,8 +13,11 @@
 
     <input type="number" min="1" max="5" name="quantidade_vagas"/>
 
-    <input type="number" min="1" max="5" name="quantidade_banheiros"/>
+    <input type="number" min="1" max="5" name="quantidade_quartos"/>
 
+    <input type="number" min="1" max="5" name="quantidade_banheiros"/>
+    
+    <input type="text" name="metragem"/>
 
     <input type="text" name="valor_condominio"/>
 
