@@ -1,12 +1,12 @@
       <h1 class="page-header">Gestão de Funcionários</h1>
       
       <form method="POST" action="<?=site_url('funcionario/cadastrar')?>">
-        <select name="setor" id="setor">
+        <select name="pessoa" id="pessoa">
           <?foreach ($pessoas as $key => $value):?>
             <option value="<?=$value->id?>"><?=$value->nome?></option>
           <?endforeach?>
         </select>
-        <select name="setor" id="setor">
+        <select name="cargo" id="cargo">
           <?foreach ($cargos as $key => $value):?>
             <option value="<?=$value->id?>"><?=$value->descricao?></option>
           <?endforeach?>
@@ -32,13 +32,13 @@
             
             <?foreach ($funcionarios as $key => $value):?>
               <tr>
-                <td><?=$value->id?></td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
+                <td><?=$value->id_funcionario?></td>
+                <td><?=$value->nome?></td>
+                <td><?=$value->cpf?></td>
+                <td><?=$value->cargo?></td>
                 <td><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
                 <td><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
-                <td><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
+                <td><a href='<?=site_url("funcionario/excluir/$value->id_funcionario")?>'><span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
               </tr>
             <?endforeach?>
           </tbody>

@@ -5,6 +5,27 @@ class Funcionarios_model extends CI_Model {
 		parent::__construct();
 	}
 
+	public function listar($value=''){
+		return $this->db->query('SELECT 
+									P.id id_pessoa,
+									P.nome nome,
+									P.data_nascimento nascimento,
+									P.cpf cpf,
+									P.usuario usuario,
+									P.senha senha,
+									P.telefone telefone,
+									P.celular celular,
+									P.endereco_id id_endereco,
+									P.email email, 
+									F.id id_funcionario,
+									C.descricao cargo 
+ 								FROM funcionario F
+ 									JOIN pessoa P
+								ON  F.pessoa_id = P.id
+									JOIN cargo C
+								ON F.cargo_id = C.id')->result();
+	}
+
 	public function listar_funcionarios() {
 		$this->db->select('*');
 		$this->db->from('funcionario AS f');
@@ -21,5 +42,13 @@ class Funcionarios_model extends CI_Model {
 		} else {
 			return false;
 		}
+	}
+
+	public function cadastrar($data){
+		$this->db->insert('funcionario', $data);
+	}
+
+	public function excluir($id){
+		$this->db->delete('funcionario', array('id' => $id)); 
 	}
 }

@@ -14,15 +14,25 @@ class Funcionario extends CI_Controller {
 		$data['page'] = 'funcionario/lista';
 		$data['cargos'] = $this->cargo->getAll();
 		$data['pessoas'] = $this->pessoa->listar_pessoas();
-		$data['funcionarios'] = $this->funcionario->listar_funcionarios();
+		$data['funcionarios'] = $this->funcionario->listar();
 
 		$this->load->view('template/template', $data);
 	}
 
 	public function cadastrar(){
-		$data['nome'] = $this->input->post('nome');
-		$data['cpf'] = $this->input->post('cpf');
-		$data['cargo'] = $this->input->post('cargo');
+		$data['pessoa_id'] = $this->input->post('pessoa');
+		$data['cargo_id'] = $this->input->post('cargo');
+
+		$this->funcionario->cadastrar($data);
+
+		redirect('funcionario');
+	}
+
+	public function excluir(){
+		$id = $this->uri->segment(3);
+		$this->funcionario->excluir($id);
+
+		redirect('funcionario');
 	}
 
 }
