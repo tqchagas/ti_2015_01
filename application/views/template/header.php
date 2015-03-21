@@ -41,3 +41,7 @@
 			</div>
 		</div>
 	</nav>
+
+<div class="container-fluid" style="padding-top: 25px;">
+  <div class="row">
+    <div class="col-sm-9 col-md-offset-1 col-md-10 main">

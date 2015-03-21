@@ -1,76 +1,77 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <title><?php echo $titulo; ?></title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() . 'assets/js/estados.js'; ?>"></script>
-    <script type="text/javascript">
-        var path = '<?php echo site_url(); ?>'
-    </script>
-    
-</head>
-<body>
-    <?php $attr = array('class' => 'form-horizontal'); ?>
+      <h1 class="page-header">Cadastrar Pessoa</h1>
+
+    <?php $attr = array('class' => ''); ?>
     <?php echo form_open('pessoa/cadastrar', $attr); ?>
-    <fieldset>
-        <legend>Cadastro </legend>
         <div class="control-group">
-            <label class="control-label" for="nome">Nome</label>
-            <div class="controls">
-                <input name="nome" type="text" placeholder="Nome" class="input-xlarge" required>
+
+            <div class="form-group">
+                <label class="control-label" for="nome">Nome</label>  
+                <input name="nome" type="text" placeholder="Nome" class="form-control" required> 
             </div>
-            <label class="control-label" for="nome">Data nascimento</label>
-            <div class="controls">
-                <input name="data_nascimento" type="date" placeholder="Nome" class="input-xlarge" required>
-            </div>
-            <label class="control-label" for="nome">Cpf</label>
-            <div class="controls">
-                <input name="cpf" type="text" placeholder="cpf" class="input-xlarge" required>
+
+            <div class="form-group">
+                <label class="control-label" for="nome">Data nascimento</label>
+                <input name="data_nascimento" type="date" placeholder="Nome" class="form-control" required>
+            </div>            
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Cpf</label>
+                <input name="cpf" type="text" placeholder="cpf" class="form-control" required>
             </div> 
-            <label class="control-label" for="nome">Email</label>
-            <div class="controls">
-                <input name="email" type="email" placeholder="email" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Email</label>
+                <input name="email" type="email" placeholder="email" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Usuário</label>
-            <div class="controls">
-                <input name="usuario" type="text" placeholder="usuario" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Usuário</label>
+                <input name="usuario" type="text" placeholder="usuario" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Senha</label>
-            <div class="controls">
-                <input name="senha" type="Password" placeholder="senha" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Senha</label>
+                <input name="senha" type="Password" placeholder="senha" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Telefone</label>
-            <div class="controls">
-                <input name="telefone" type="text" placeholder="telefone" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Telefone</label>
+                <input name="telefone" type="text" placeholder="telefone" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Celular</label>
-            <div class="controls">
-                <input name="celular" type="text" placeholder="celular" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Celular</label>
+                <input name="celular" type="text" placeholder="celular" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Cep</label>
-            <div class="controls">
-                <input name="cep" type="text" placeholder="cep" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Cep</label>
+                <input name="cep" type="text" placeholder="cep" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Logradouro</label>
-            <div class="controls">
-                <input name="logradouro" type="text" placeholder="logradouro" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Logradouro</label>
+                <input name="logradouro" type="text" placeholder="logradouro" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Número</label>
-            <div class="controls">
-                <input name="numero" type="text" placeholder="numero" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Número</label>
+                <input name="numero" type="text" placeholder="numero" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Complemento</label>
-            <div class="controls">
-                <input name="complemento" type="text" placeholder="complemento" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Complemento</label>
+                <input name="complemento" type="text" placeholder="complemento" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Bairro</label>
-            <div class="controls">
-                <input name="bairro" type="text" placeholder="Bairro" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Bairro</label>
+                <input name="bairro" type="text" placeholder="Bairro" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Estado</label>
-            <div class="controls">
+
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Estado</label>
                 <?php
                     $options = array ('' => 'Escolha');
                     foreach($estados as $estado)
@@ -78,22 +79,26 @@
                     echo form_dropdown('estado_id', $options);
                 ?>
             </div>  
-            <label class="control-label" for="nome">Cidade</label>
-            <div class="controls">
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Cidade</label>
                 <?php echo form_dropdown('cidade_id', array('' => 'Escolha um Estado'), '','id="cidade"' ); ?>
             </div>  
-            <label class="control-label" for="nome">pais</label>
-            <div class="controls">
-                <input name="pais" type="text" placeholder="pais" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">pais</label>
+                <input name="pais" type="text" placeholder="pais" class="form-control" required>
             </div>  
 
-            <div class="controls">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
         </div>    
-    </fieldset>
+    
  
     <?php echo form_close(); ?>
 
-</body>
-</html>
+
+  <script type="text/javascript">
+    var path = '<?php echo site_url(); ?>'
+  </script>

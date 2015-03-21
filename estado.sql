@@ -1,5 +1,5 @@
-INSERT INTO `estado`  (id, uf, nome)  
-
+INSERT INTO `estado`  (id, uf, nome)
+VALUES
     (1, 'AC', 'Acre'),
     (2, 'AL', 'Alagoas'),
     (3, 'AM', 'Amazonas'),
