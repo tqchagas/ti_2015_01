@@ -28,7 +28,7 @@ class Pessoa extends CI_Controller
 
 	public function adicionar($id = null)
 	{
-		$dados['page'] = 'pessoa/adicionar';
+		$dados['page'] = 'pessoa/editar';
 		$dados['estados'] = $this->cidades->listar_estados();
 		if ($id === null) {
 			$dados['titulo'] = 'Pessoas - Cadastrar';
@@ -36,6 +36,7 @@ class Pessoa extends CI_Controller
 		} else {
 			$dados['titulo'] = 'pessoas - Editar';
 			$dados['pessoa'] = $this->pessoas->listar_pessoas($id);
+			$dados['endereco'] = $this->enderecos->listar_enderecos($dados['pessoa'][0]);
 			$this->load->view('template/template', $dados);
 		}
 	}

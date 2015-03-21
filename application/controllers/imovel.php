@@ -45,7 +45,7 @@ class Imovel extends CI_Controller {
 	}
 
 	public function atualizar() {
-		//$this->load->library('form_validation');
+		
 		$data['id'] = $this->input->post('id');
 		$data['numero'] = $this->input->post('numero');
 		$data['bloco'] = $this->input->post('bloco');
