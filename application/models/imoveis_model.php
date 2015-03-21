@@ -15,7 +15,12 @@ class Imoveis_model extends CI_Model {
 	}
 
 	public function cadastrar($data) {
-		$this->db->insert('imovel', $data);
+		if(isset($data['id'])) {
+			$this->db->where('id', $data['id']);
+			$this->db->update('imovel', $data);
+		} else {
+			$this->db->insert('imovel', $data);
+		}
 	}
 
 	public function deletar($id) {
