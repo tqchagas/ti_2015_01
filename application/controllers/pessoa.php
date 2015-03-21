@@ -34,6 +34,7 @@ class Pessoa extends CI_Controller
 		} else {
 			$dados['titulo'] = 'pessoas - Editar';
 			$dados['pessoa'] = $this->pessoas->listar_pessoas($id);
+			$dados['endereco'] = $this->enderecos->listar_enderecos($dados['pessoa'][0]);
 			$this->load->view('pessoa/editar', $dados);
 		}
 	}
