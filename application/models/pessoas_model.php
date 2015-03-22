@@ -33,7 +33,7 @@ class Pessoas_model extends CI_Model {
 										, c.descricao AS cidade_descricao
 										, es.nome AS estado_descricao
 									FROM 
-										pessoa AS P
+										pessoa AS p
 									INNER JOIN endereco AS e
 									ON p.endereco_id = e.id
 									INNER JOIN estado AS es 
@@ -52,6 +52,7 @@ class Pessoas_model extends CI_Model {
 		} else {
 			$this->db->insert('pessoa', $data);
 		}
+		redirect('/pessoa/', 'refresh');
 	}
 
 
