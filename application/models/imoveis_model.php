@@ -20,6 +20,7 @@ class Imoveis_model extends CI_Model {
 		} else {
 			$this->db->insert('imovel', $data);
 		}
+		redirect(base_url('imovel'));
 	}
 
 	public function deletar($id) {
@@ -27,6 +28,7 @@ class Imoveis_model extends CI_Model {
 		$imovel_ocupado = $this->moradores->imovel_ocupado($id);
 		if (!$imovel_ocupado) {
 			$this->db->delete('imovel', array('id' => $id));
+			redirect('/imovel/', 'refresh');
 		} else {
 			$this->session->set_flashdata('naoExclusaoImovel', 'Não foi possível excluir pois o imóvel possui morador associado.');
 			redirect('/imovel/', 'refresh');
