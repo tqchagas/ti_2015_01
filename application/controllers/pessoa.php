@@ -21,22 +21,23 @@ class Pessoa extends CI_Controller
 
 	public function visualizar($id) 
 	{
+		$dados['page'] = 'pessoa/visualizar';		
 		$dados['pessoa'] = $this->pessoas->listar_pessoas($id);
-		$dados['titulo'] = "Pessoa ". $id . " - Visualizar";
-		$this->load->view('pessoa/visualizar', $dados);
+		$this->load->view('template/template', $dados);
 	}
 
 	public function adicionar($id = null)
 	{
-		$dados['page'] = 'pessoa/adicionar';
+		
 		$dados['estados'] = $this->cidades->listar_estados();
 		if ($id === null) {
+			$dados['page'] = 'pessoa/adicionar';
 			$dados['titulo'] = 'Pessoas - Cadastrar';
 			$this->load->view('template/template', $dados);
 		} else {
+			$dados['page'] = 'pessoa/editar';
 			$dados['titulo'] = 'pessoas - Editar';
 			$dados['pessoa'] = $this->pessoas->listar_pessoas($id);
-			$dados['endereco'] = $this->enderecos->listar_enderecos($dados['pessoa'][0]);
 			$this->load->view('template/template', $dados);
 		}
 	}
@@ -69,10 +70,12 @@ class Pessoa extends CI_Controller
 		$codigo_endereco                   = $this->enderecos->cadastrar($data['endereco']);
 		$data['pessoa']['endereco_id']     = $codigo_endereco;
 		$this->pessoas->cadastrar($data['pessoa']);
+		//redirect(base_url('pessoa'));
 	}
 
 	public function atualizar() 
 	{
+		$data['pessoa']['id']              = $this->input->post('pessoa_id');
 		$data['pessoa']['nome']            = $this->input->post('nome');
 		$data['pessoa']['data_nascimento'] = $this->input->post('data_nascimento');
 		$data['pessoa']['cpf']             = $this->input->post('cpf');
@@ -81,6 +84,7 @@ class Pessoa extends CI_Controller
 		$data['pessoa']['senha']           = $this->input->post('senha');
 		$data['pessoa']['telefone']        = $this->input->post('telefone');
 		$data['pessoa']['celular']         = $this->input->post('celular');
+		$data['endereco']['id']            = $this->input->post('endereco_id');
  		$data['endereco']['cep']           = $this->input->post('cep');
 		$data['endereco']['logradouro']    = $this->input->post('logradouro');
 		$data['endereco']['numero']        = $this->input->post('numero');
@@ -90,11 +94,9 @@ class Pessoa extends CI_Controller
 		$data['endereco']['estado_id']     = $this->input->post('estado_id');
 		$data['endereco']['pais']          = $this->input->post('pais');
 
-		echo $data['endereco']['cidade_id'];
-		echo $data['endereco']['estado_id'];
-		die();
 		$this->pessoas->cadastrar($data['pessoa']);
 		$this->enderecos->cadastrar($data['endereco']);
+		redirect(base_url('pessoa'));
 	}
 
 	public function deletar($id) 

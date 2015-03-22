@@ -1,100 +1,117 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <title><?php echo $titulo; ?></title>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url() . 'assets/js/estados.js'; ?>"></script>
-    <script type="text/javascript">
-        var path = '<?php echo site_url(); ?>'
-    </script>
-    
-</head>
-<body>
-    <?php $attr = array('class' => 'form-horizontal'); ?>
+    <h1 class="page-header">Atualizar Pessoa</h1>
+
+    <?php $attr = array('class' => ''); ?>
     <?php echo form_open('pessoa/atualizar', $attr); ?>
-    <fieldset>
-        <legend>Cadastro </legend>
-        <div class="control-group">
-            <input type="hidden" name="id" value="<?php echo $pessoa[0]->id; ?>"/>
-            <label class="control-label" for="nome">Nome</label>
-            <div class="controls">
-                <input name="nome" type="text" placeholder="Nome" class="input-xlarge" value="<?php echo $pessoa[0]->nome ?>"required>
+        <div class="control-group"> 
+            <div class="form-group">
+                <input type="hidden" name="pessoa_id" value="<?= $pessoa[0]->pessoa_id ?>">
+                <input type="hidden" name="endereco_id" value="<?= $pessoa[0]->endereco_id ?>">
+                <label class="control-label" for="nome">Nome</label>  
+                <input name="nome" type="text" placeholder="Nome" class="form-control" value="<?= $pessoa[0]->pessoa_nome ?>" required> 
             </div>
-            <label class="control-label" for="nome">Data nascimento</label>
-            <div class="controls">
-                <input name="data_nascimento" type="date" placeholder="Nome" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>" required>
-            </div>
-            <label class="control-label" for="nome">Cpf</label>
-            <div class="controls">
-                <input name="cpf" type="text" placeholder="cpf" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>" required>
+
+            <div class="form-group">
+                <label class="control-label" for="nome">Data nascimento</label>
+                <input name="data_nascimento" type="date" placeholder="Nome" class="form-control" value="<?= $pessoa[0]->data_nascimento ?>" required>
+            </div>            
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Cpf</label>
+                <input name="cpf" type="text" placeholder="cpf" class="form-control" value="<?= $pessoa[0]->cpf ?>" required>
             </div> 
-            <label class="control-label" for="nome">Email</label>
-            <div class="controls">
-                <input name="email" type="email" placeholder="email" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Email</label>
+                <input name="email" type="email" placeholder="email" class="form-control" value="<?= $pessoa[0]->email ?>" required>
             </div>  
-            <label class="control-label" for="nome">Usuário</label>
-            <div class="controls">
-                <input name="usuario" type="text" placeholder="usuario" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Usuário</label>
+                <input name="usuario" type="text" placeholder="usuario" class="form-control" value="<?= $pessoa[0]->usuario ?>" required>
             </div>  
-            <label class="control-label" for="nome">Senha</label>
-            <div class="controls">
-                <input name="senha" type="Password" placeholder="senha" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Senha</label>
+                <input name="senha" type="Password" placeholder="senha" class="form-control" required>
             </div>  
-            <label class="control-label" for="nome">Telefone</label>
-            <div class="controls">
-                <input name="telefone" type="text" placeholder="telefone" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Telefone</label>
+                <input name="telefone" type="text" placeholder="telefone" class="form-control" value="<?= $pessoa[0]->telefone ?>" required>
             </div>  
-            <label class="control-label" for="nome">Celular</label>
-            <div class="controls">
-                <input name="celular" type="text" placeholder="celular" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Celular</label>
+                <input name="celular" type="text" placeholder="celular" class="form-control" value="<?= $pessoa[0]->celular ?>" required>
             </div>  
-            <label class="control-label" for="nome">Cep</label>
-            <div class="controls">
-                <input name="cep" type="text" placeholder="cep" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Cep</label>
+                <input name="cep" type="text" placeholder="cep" class="form-control" value="<?= $pessoa[0]->cep ?>" required>
             </div>  
-            <label class="control-label" for="nome">Logradouro</label>
-            <div class="controls">
-                <input name="logradouro" type="text" placeholder="logradouro" class="input-xlarge" value="<?php echo $pessoa[0]->data_nascimento ?>"required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Logradouro</label>
+                <input name="logradouro" type="text" placeholder="logradouro" class="form-control" value="<?= $pessoa[0]->logradouro ?>" required>
             </div>  
-            <label class="control-label" for="nome">Número</label>
-            <div class="controls">
-                <input name="numero" type="text" placeholder="numero" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Número</label>
+                <input name="numero" type="text" placeholder="numero" class="form-control" value="<?= $pessoa[0]->numero ?>" required>
             </div>  
-            <label class="control-label" for="nome">Complemento</label>
-            <div class="controls">
-                <input name="complemento" type="text" placeholder="complemento" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Complemento</label>
+                <input name="complemento" type="text" placeholder="complemento" class="form-control" value="<?= $pessoa[0]->complemento ?>" >
             </div>  
-            <label class="control-label" for="nome">Bairro</label>
-            <div class="controls">
-                <input name="bairro" type="text" placeholder="Bairro" class="input-xlarge" required>
-            </div>  
-            <label class="control-label" for="nome">Estado</label>
-            <div class="controls">
-                <?php
-                    $options = array ('' => 'Escolha');
-                    foreach($estados as $estado)
-                        $options[$estado->id] = $estado->nome;
-                    echo form_dropdown('estado_id', $options);
-                ?>
-            </div>  
-            <label class="control-label" for="nome">Cidade</label>
-            <div class="controls">
-                <?php echo form_dropdown('cidade_id', array('' => 'Escolha um Estado'), '','id="cidade"' ); ?>
-            </div>  
-            <label class="control-label" for="nome">pais</label>
-            <div class="controls">
-                <input name="pais" type="text" placeholder="pais" class="input-xlarge" required>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Bairro</label>
+                <input name="bairro" type="text" placeholder="Bairro" class="form-control" value="<?= $pessoa[0]->bairro ?>" required>
             </div>  
 
-            <div class="controls">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Estado</label>
+                <?php
+                    $options = array ('' => 'Escolha');
+                    
+                    foreach($estados as $estado)
+                        $options[$estado->id] = $estado->nome;
+                    echo form_dropdown('estado_id', $options, '', 'id="estado"');
+                ?>
+                <script type="text/javascript">
+                    $( document ).ready(function() {
+                        $("#estado").val('<?= $pessoa[0]->estado_id ?>').trigger('change');
+                    });
+                </script>
+            </div>  
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">Cidade</label>
+                <?php echo form_dropdown('cidade_id', array('' => 'Escolha um Estado'), '','id="cidade"' ); ?>
+                <script type="text/javascript">
+                    setTimeout(function(){
+                        $("#cidade").val('<?= $pessoa[0]->cidade_id ?>')
+                    }, 2000);
+                </script>
+            </div>  
+            
+            <div class="form-group">
+                <label class="control-label" for="nome">País</label>
+                <input name="pais" type="text" placeholder="pais" class="form-control" value="<?= $pessoa[0]->pais ?>" required>
+            </div>  
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success pull-right">Atualizar</button>
+                <a href="<?= base_url('pessoa')?>" class="btn btn-danger" role="button">Cancelar</a>
             </div>
         </div>    
-    </fieldset>
+    
  
     <?php echo form_close(); ?>
 
-</body>
-</html>
+
+  <script type="text/javascript">
+    var path = '<?php echo site_url(); ?>'
+  </script>

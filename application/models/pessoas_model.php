@@ -7,11 +7,43 @@ class Pessoas_model extends CI_Model {
 
 	public function listar_pessoas($id = null) {
 		if ($id === null) {
-			return $this->db->get('pessoa')->result();
+			$this->db->select('p.id, p.cpf, p.telefone, p.celular, p.email');
+			$this->db->from('pessoa AS p');
+			$this->db->join('endereco AS e', 'p.endereco_id = e.id');
+			return $this->db->get()->result();
 		} else {
-			return $this->db->get_where('pessoa', array('id' => $id))->result();
+			return $this->db->query('SELECT 
+										p.id AS pessoa_id
+										, p.nome AS pessoa_nome
+										, p.data_nascimento
+										, p.telefone
+										, p.celular
+										, p.email
+										, p.usuario
+										, p.cpf
+										, e.id AS endereco_id
+										, e.cep
+										, e.logradouro
+										, e.numero
+										, e.complemento
+										, e.bairro
+										, e.pais
+										, e.estado_id AS estado_id
+										, e.cidade_id AS cidade_id
+										, c.descricao AS cidade_descricao
+										, es.nome AS estado_descricao
+									FROM 
+										pessoa AS P
+									INNER JOIN endereco AS e
+									ON p.endereco_id = e.id
+									INNER JOIN estado AS es 
+									ON e.estado_id = es.id
+									INNER JOIN cidade AS c 
+									ON e.cidade_id = c.id')->result();
 		}
+
 	}
+
 
 	public function cadastrar($data) {
 		if(isset($data['id'])) {

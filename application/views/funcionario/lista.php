@@ -11,7 +11,7 @@
             <option value="<?=$value->id?>"><?=$value->descricao?></option>
           <?endforeach?>
         </select>
-        <input type="submit" class="btn btn-success cadastra" value="Enviar">
+        <input type="submit" class="btn btn-success cadastra" value="Cadastrar">
       </form>
 
       <h2 class="sub-header">Funcionários</h2>
@@ -38,7 +38,7 @@
                 <td><?=$value->cargo?></td>
                 <td><a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
                 <td><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
-                <td><a href='<?=site_url("funcionario/excluir/$value->id_funcionario")?>'><span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
+                <td><a href='<?=site_url("funcionario/excluir/$value->id_funcionario")?>' onclick="return confirm('Deseja realmente excluir?')"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
               </tr>
             <?endforeach?>
           </tbody>

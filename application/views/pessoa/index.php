@@ -1,7 +1,9 @@
 <h1 class="page-header">Gestão de Pessoas</h1>
-
-
 <div class="table-responsive">
+        
+        <a href="<?= base_url('pessoa/adicionar')?>" class="btn btn-primary" role="button">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar
+        </a>
         <table class="table table-striped">
           <thead>
             <tr>
@@ -31,6 +33,5 @@
           </tbody>
         </table>
       </div>
-
 <b><?php print_r($this->session->flashdata('naoExclusaoPessoa')); ?></b>
 <b><?php print_r($this->session->flashdata('exclusaoPessoa')); ?></b>
