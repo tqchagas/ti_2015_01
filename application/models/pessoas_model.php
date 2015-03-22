@@ -7,7 +7,7 @@ class Pessoas_model extends CI_Model {
 
 	public function listar_pessoas($id = null) {
 		if ($id === null) {
-			$this->db->select('p.id, p.cpf, p.telefone, p.celular, p.email');
+			$this->db->select('p.id, p.cpf, p.telefone, p.celular, p.email, p.nome');
 			$this->db->from('pessoa AS p');
 			$this->db->join('endereco AS e', 'p.endereco_id = e.id');
 			return $this->db->get()->result();

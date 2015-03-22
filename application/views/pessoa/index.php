@@ -8,6 +8,7 @@
           <thead>
             <tr>
               <th>#</th>
+              <th>Nome</th>
               <th>CPF</th>
               <th>Telefone</th>
               <th>Celular</th>
@@ -19,15 +20,16 @@
           </thead>
           <tbody>
 			<?php foreach ($pessoas as $pessoa): ?>
-	            <tr>
-					<td><?php echo $pessoa->id;?></td>
-					<td><?php echo $pessoa->cpf;?></td>
-					<td><?php echo $pessoa->telefone;?></td>
-					<td><?php echo $pessoa->celular;?></td>
-					<td><?php echo $pessoa->email;?></td>
-					<td><a href="<?php echo base_url('pessoa/visualizar/'.$pessoa->id);?>"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
-					<td><a href="<?php echo base_url('pessoa/adicionar/'.$pessoa->id);?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
-					<td><a href="<?php echo base_url('pessoa/deletar/'.$pessoa->id);?>" onclick="return confirm('Deseja realmente excluir?')"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
+	       <tr>
+					<td><?= $pessoa->id ?></td>
+          <td><?= $pessoa->nome ?></td>
+					<td><?= $pessoa->cpf ?></td>
+					<td><?= $pessoa->telefone ?></td>
+					<td><?= $pessoa->celular ?></td>
+					<td><?= $pessoa->email ?></td>
+					<td><a href="<?= base_url('pessoa/visualizar/'.$pessoa->id) ?>"><span class="glyphicon glyphicon-search" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
+					<td><a href="<?= base_url('pessoa/adicionar/'.$pessoa->id) ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
+					<td><a href="<?= base_url('pessoa/deletar/'.$pessoa->id) ?>" onclick="return confirm('Deseja realmente excluir?')"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="margin-left: 20px;"></span></a></td>
 	            </tr>
 			<?php endforeach ?>
           </tbody>

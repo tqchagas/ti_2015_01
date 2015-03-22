@@ -13,11 +13,8 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$dados['a'] = $this->imoveis->listar_imoveis();
-		$dados['b'] = $this->pessoas->listar_pessoas();
-		$dados['c'] = $this->moradores->listar_moradores();
-		$dados['d'] = $this->funcionarios->listar_funcionarios();
-		$this->load->view('welcome_message', $dados);
+		$dados['page'] = 'welcome_message';
+		$this->load->view('template/template', $dados);
 	}
 }
 
