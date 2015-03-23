@@ -27,8 +27,18 @@
 					<li><a href="<?= base_url('morador')?>">Moradores</a></li>
 					<li><a href="<?= base_url('funcionario')?>">Funcionários</a></li>
 					<li><a href="<?= base_url('imovel')?>">Imovéis</a></li>
-					<li><a href="<?= base_url('balancete')?>">Balancete</a></li>
-					<li><a href="<?= base_url('segunda_via')?>">2º Via</a></li>
+					<li id="fat-menu" class="dropdown">
+						<a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="true">
+							Financeiro
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('conta')?>">Cadastrar conta</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('segunda_via')?>">2ª Via Boleto</a></li>
+							<li role="presentation" class="divider"></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('balancete')?>">Balancete</a></li>
+						</ul>
+					</li>
 				</ul>
 			<!-- <form class="navbar-form navbar-right">
 				<input type="text" class="form-control" placeholder="Search...">

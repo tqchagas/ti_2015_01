@@ -5,7 +5,7 @@ class Moradores_model extends CI_Model {
 		parent::__construct();
 	}
 
-	public function listar($value=''){
+	public function listar(){
 		return $this->db->query('SELECT 
 									P.id id_pessoa,
 									P.nome nome,
