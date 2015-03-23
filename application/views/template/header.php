@@ -11,7 +11,6 @@
 	<script src="<?=base_url('assets/js/jquery-2.1.3.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/bootstrap.min.js')?>"></script>
 	<script src="<?=base_url('assets/js/estados.js')?>"></script>
-	<script src="<?=base_url('assets/js/npm.js')?>"></script>
 
 
 </head>
@@ -30,10 +29,10 @@
 					<li><a href="<?= base_url('imovel')?>">Imovéis</a></li>
 					<li><a href="<?= base_url('balancete')?>">Balancete</a></li>
 					<li><a href="<?= base_url('segunda_via')?>">2º Via</a></li>
-			</ul>
-			<form class="navbar-form navbar-right">
+				</ul>
+			<!-- <form class="navbar-form navbar-right">
 				<input type="text" class="form-control" placeholder="Search...">
-			</form>
+			</form> -->
 			</div>
 		</div>
 	</nav>

@@ -35,6 +35,27 @@ class Funcionario extends CI_Controller {
 		redirect('funcionario');
 	}
 
+	public function visualizar(){
+		$id = $this->input->post('id');
+		$return = $this->funcionario->get($id);
+
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($return));
+	}
+
+	public function editar($value=''){
+		$data['pessoa_id'] = $this->input->post('id_pessoa');
+		$data['cargo_id'] = $this->input->post('id_cargo');
+
+		$this->funcionario->editar($data);
+		$return['success'] = true;
+
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($return));
+	}
+
 }
 
 /* End of file funcionario.php */
