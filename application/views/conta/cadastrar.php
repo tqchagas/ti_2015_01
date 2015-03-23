@@ -34,7 +34,7 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-success pull-right">Cadastrar</button>
-                <a href="<?= base_url('pessoa')?>" class="btn btn-danger" role="button">Cancelar</a>
+                <a href="<?= base_url('conta')?>" class="btn btn-danger" role="button">Cancelar</a>
             </div>
         </div>    
     

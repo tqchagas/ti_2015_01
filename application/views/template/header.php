@@ -33,7 +33,7 @@
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('conta')?>">Cadastrar conta</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('conta')?>">Contas</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('segunda_via')?>">2ª Via Boleto</a></li>
 							<li role="presentation" class="divider"></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('balancete')?>">Balancete</a></li>

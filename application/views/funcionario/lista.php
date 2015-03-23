@@ -1,5 +1,4 @@
 <h1 class="page-header">Gestão de Funcionários</h1>
-
 <form method="POST" action="<?=site_url('funcionario/cadastrar')?>">
   <select name="pessoa" id="pessoa">
     <?foreach ($pessoas as $key => $pessoa):?>
@@ -23,7 +22,7 @@
         <th>Nome</th>
         <th>CPF</th>
         <th>Cargo</th>
-        <th>Visulizar</th>
+        <th>Visualizar</th>
         <th>Editar</th>
         <th>Excluir</th>
       </tr>

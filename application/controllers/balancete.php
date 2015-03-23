@@ -6,15 +6,27 @@ class Balancete extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('balancetes_model', 'balancetes');
+		$this->load->model('conta_model', 'conta');
 	}
 
 	public function index()
 	{
 		$data['page'] = 'balancete/index';
-		$data['lista_creditos'] = $this->balancetes->listar_creditos();
-		$data['lista_debitos'] = $this->balancetes->listar_debitos();
-		$data['total_creditos'] = $this->balancetes->total_creditos();
-		$data['total_debitos'] = $this->balancetes->total_debitos();
+
+		$data['total'] = $this->conta->calculaBalancete();
+		$data['contas'] = $this->conta->listaContas();
+
  		$this->load->view('template/template', $data);
+	}
+
+	public function calcular($value=''){
+		$response['page'] = 'balancete/index';
+		$data['data_inicial'] = $this->input->post("data_inicial");
+		$data['data_final'] = $this->input->post("data_final");
+
+		$response['total'] = $this->conta->calculaBalancete($data);
+		$response['contas'] = $this->conta->listaContas($data);
+
+		$this->load->view('template/template', $response);
 	}
 }

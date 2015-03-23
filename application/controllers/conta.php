@@ -8,7 +8,14 @@ class Conta extends CI_Controller {
 		$this->load->model('conta_model', 'conta');
 	}
 
-	public function index()	{
+	public function index(){
+		$data['page'] = 'conta/lista';
+		$data['contas'] = $this->conta->listaContas();
+
+		$this->load->view('template/template', $data);
+	}
+
+	public function cadastro()	{
 		$data['page'] = 'conta/cadastrar';
 
 		$this->load->view('template/template', $data);
@@ -28,6 +35,26 @@ class Conta extends CI_Controller {
 		$this->conta->cadastrar($data);
 
 		redirect('conta');
+	}
+
+	public function excluir(){
+		$id = $this->uri->segment(3);
+
+		$this->conta->excluir($id);
+		redirect('conta');
+	}
+
+	public function editar(){
+		$data['id_conta'] = $this->input->post('id_conta');
+		$data['data_pagamento'] = $this->input->post('data_pagamento');
+
+		$this->conta->editar($data);
+
+		$return['success'] = true;
+
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($return));
 	}
 
 }

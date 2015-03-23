@@ -1,7 +1,7 @@
 
  <h1 class="page-header">Emitir balancete</h1>
 
-    <?php echo form_open('balancete/'); ?>
+    <?php echo form_open('/balancete/calcular'); ?>
         <div class="control-group"> 
             <div class="form-group">
                 <label class="control-label" for="nome">Data inicial</label>  
@@ -12,7 +12,7 @@
 
             
             <div class="form-group">
-                <button type="submit" class="btn btn-success pull-right">Balancete</button>
+                <button type="submit" class="btn btn-success pull-right">Emitir Balancete</button>
             </div>
         </div>    
     <?php echo form_close(); ?>
@@ -23,22 +23,22 @@
                 <th>Tipo</th>
                 <th>Valor</th>
                 <th>Descrição</th>
+                <th>Data</th>
             </tr>
-            	<?php foreach ($lista_creditos as $credito): ?>
-            		<tr>
-            		<td>Crédito</td>
-            		<td>R$ <?= $credito->valor ?></td>
-            		<td><?= $credito->descricao ?></td>
-            		</tr>
-            	<?php endforeach ?>
-            	<?php foreach ($lista_debitos as $debitos): ?>
-            		<tr>
-            		<td>Débito</td>
-            		<td>R$ <?= $debitos->valor ?></td>
-            		<td><?= $debitos->descricao ?></td>
-            		</tr>
-            	<?php endforeach ?>
-            	<tr><td>Saldo</td><td>R$ <?= $total_creditos->total - $total_debitos->total ?></td></tr>
+            	<?foreach ($contas as $key => $conta):?>
+                    <tr style="color: <?=$conta->balanco == "D" ? "red" : "green"?>">
+                        <td><?=$conta->balanco?></td>
+                        <td>R$ <?=$conta->valor?></td>
+                        <td><?=$conta->descricao?></td>
+                        <td><?=$conta->data_vencimento?></td>
+                    </tr>
+                <?endforeach?>
+            	<tr>
+                    <td>Total</td>
+                    <td style="color: <?=$total->valor >= 0 ? "green" : "red"?>">R$ <?=$total->valor ?></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </tr>
             </thead>
             <tbody>
