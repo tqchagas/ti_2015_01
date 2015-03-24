@@ -37,7 +37,7 @@ class Morador extends CI_Controller {
 
 	public function visualizar(){
 		$id = $this->input->post('id');
-		$return = $this->funcionario->get($id);
+		$return = $this->moradores->get($id);
 
 		$this->output
 			->set_content_type('application/json')

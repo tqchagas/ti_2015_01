@@ -31,6 +31,25 @@ class Moradores_model extends CI_Model {
 		$this->db->insert('morador', $data);
 	}
 
+	public function get($id){
+		return $this->db->query('SELECT 
+									P.id id_pessoa,
+									P.nome nome,
+									P.data_nascimento nascimento,
+									P.cpf cpf,
+									P.usuario usuario,
+									P.senha senha,
+									P.telefone telefone,
+									P.celular celular,
+									P.endereco_id id_endereco,
+									P.email email, 
+									M.pessoa_id id_pessoa
+ 								FROM morador M
+ 									JOIN pessoa P
+								ON M.pessoa_id = P.id
+									WHERE M.id = ?', (array('id' => $id)))->row();
+	}
+
 	public function excluir($id){
 		$this->db->delete('morador', array('id' => $id)); 
 	}
