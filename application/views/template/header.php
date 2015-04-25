@@ -37,6 +37,7 @@
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('pagamento')?>">Condomínio</a></li>
 							<li role="presentation" class="divider"></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('balancete')?>">Balancete</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('pagamento/relatorio_pendencia_pagamento')?>">Relatório pendência pagamento</a></li>
 						</ul>
 					</li>
 				</ul>

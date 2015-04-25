@@ -54,7 +54,7 @@
       </div>
       <div class="modal-body">
         <label for="usuario">Usuário: </label>
-        <span class="usuario"></span>
+        <input type="text" value="<span class='usuario'></span>"/>
         <br />
         <label for="nome">Nome: </label>
         <span class="nome"></span>
@@ -84,7 +84,7 @@
   $(function () {
     $('#modalVisualizar').on('shown.bs.modal', function (event) {
       var id = $(event.relatedTarget).data('id');
-      
+      console.log(id);
       $.ajax({
           url: '<?=site_url("morador/visualizar")?>',
           type: 'post',

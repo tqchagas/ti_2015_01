@@ -62,6 +62,12 @@ class Pagamento extends CI_Controller {
 		$this->load->view('template/template', $data);
 	}
 
+	public function relatorio_pendencia_pagamento() {
+		$data['page'] = 'pagamento/pendentes';
+		$data['pagamentos'] = $this->pagamento->listar_pendentes();
+		$this->load->view('template/template', $data);
+	}
+
 }
 
 /* End of file pagamento.php */

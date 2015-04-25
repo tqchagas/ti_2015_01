@@ -93,6 +93,23 @@ class Pagamento_model extends CI_Model {
 		$this->db->delete('pagamento', array('id' => $id));
 	}
 
+	public function listar_pendentes() {
+		return $this->db->query('SELECT
+									P.id AS id_pagamento,
+									P.periodo,
+									I.numero, 
+									I.bloco,
+									pessoa.nome
+										FROM pagamento P
+									JOIN morador M
+										ON P.morador_id = M.id
+									JOIN imovel I
+										ON M.imovel_id = I.id
+									JOIN pessoa
+										ON M.pessoa_id = pessoa.id
+									where P.pago = 0')->result();
+	}
+
 }
 
 /* End of file pagamento_model.php */
