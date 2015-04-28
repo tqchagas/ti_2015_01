@@ -110,6 +110,11 @@ class Pagamento_model extends CI_Model {
 									where P.pago = 0')->result();
 	}
 
+	public function ratear(){
+		$query = "SELECT (SUM(conta.valor)/(SELECT COUNT(imovel.id) FROM imovel)) as valor FROM conta WHERE conta.valor > 0";
+		return $this->db->query($query)->row();
+	}
+
 }
 
 /* End of file pagamento_model.php */

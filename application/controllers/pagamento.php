@@ -7,6 +7,7 @@ class Pagamento extends CI_Controller {
 		parent::__construct();
 		$this->load->model('pagamento_model', 'pagamento');
 		$this->load->model('moradores_model', 'morador');
+		$this->load->model('imoveis_model', 'imovel');
 	}
 
 	public function index(){
@@ -65,6 +66,14 @@ class Pagamento extends CI_Controller {
 	public function relatorio_pendencia_pagamento() {
 		$data['page'] = 'pagamento/pendentes';
 		$data['pagamentos'] = $this->pagamento->listar_pendentes();
+		$this->load->view('template/template', $data);
+	}
+
+	public function rateio(){
+		$data['page'] = 'pagamento/rateio';
+		$data['rateio'] = $this->pagamento->ratear();
+		$data['imoveis'] = $this->imovel->listar_imoveis();
+
 		$this->load->view('template/template', $data);
 	}
 
