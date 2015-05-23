@@ -2,6 +2,23 @@
 class Reserva_model extends CI_Model 
 {
 
+	/*
+           _
+          ((`)_.._     ,'-. _..._ _._
+           \,'    '-._.-\  '     ` .-'
+          .'            /         (
+         /             |     _   _ \
+        |              \     e   e  |
+        ;                     .-.   /
+         ;       ',       '-.( '')-'
+          '.      |           ;-'
+            \    /           /
+            /   /-._  __,  7 |
+            \  `\  \``  |  | |
+             \   \_,\   |  |_,\
+             '-`'      \_,\
+	*/
+	
 	public function __construct() 
 	{
 		parent::__construct();
