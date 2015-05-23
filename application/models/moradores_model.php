@@ -18,7 +18,8 @@ class Moradores_model extends CI_Model {
 									P.endereco_id id_endereco,
 									P.email email, 
 									M.id id_morador,
-									I.numero imovel
+									I.numero imovel,
+									I.id AS imovel_id
  								FROM morador M
  									JOIN pessoa P
 								ON  M.pessoa_id = P.id

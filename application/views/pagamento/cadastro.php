@@ -10,8 +10,6 @@
                 <option value="<?=$morador->id_morador?>"><?=$morador->nome?></option>
             <?endforeach?>
         </select>
-
-
     </div>
 
     <div class="form-group">

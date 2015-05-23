@@ -14,7 +14,7 @@
               <th>Número banheiros</th>
               <th>Bloco</th>
               <th>Número vagas</th>
-              <th>Visulizar</th>
+              <th>Visualizar</th>
               <th>Editar</th>
               <th>Excluir</th>
             </tr>
