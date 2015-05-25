@@ -30,6 +30,11 @@ class Reserva_model extends CI_Model
 		$this->db->insert('reserva_espaco', $data);
 	}
 
+	public function cadastrar_espaco($data)
+	{
+		$this->db->insert('espaco', $data);
+	}
+
 	public function listar() 
 	{
 		return $this->db->query('SELECT e.nome, i.numero, i.bloco, r.id, r.data_inicial, r.data_final, r.custo
