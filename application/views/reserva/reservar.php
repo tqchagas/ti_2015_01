@@ -9,7 +9,7 @@
         <div class="control-group">
             <div class="form-group">
                 <label class="control-label" for="descricao">Imóvel</label>  
-                <select name="imovel" id="imovel">
+                <select name="imovel" id="imovel" class="form-control">
                     <?foreach ($imoveis as $key => $imovel):?>
                         <option value="<?=$imovel->id?>"><?=$imovel->numero." - ".$imovel->bloco?></option>
                     <?endforeach?>
@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label" for="descricao">Espaço</label>  
-                <select name="espaco" id="espaco">
+                <select name="espaco" id="espaco" class="form-control">
                     <?foreach ($espacos as $key => $espaco):?>
                         <option value="<?=$espaco->id?>"><?=$espaco->nome?></option>
                     <?endforeach?>

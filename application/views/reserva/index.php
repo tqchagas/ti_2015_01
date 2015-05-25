@@ -19,8 +19,8 @@
             <?php foreach ($reservas as $reserva): ?>
                 <tr>
                     <td><?= $reserva->id;?></td>
-                    <td><?= $reserva->nome;?></td>
                     <td><?= $reserva->numero ." - ". $reserva->bloco?></td>
+                    <td><?= $reserva->nome;?></td>
                     <td><?= $reserva->data_inicial;?></td>
                     <td><?= $reserva->data_final;?></td>
                     <td><?= $reserva->custo;?></td>

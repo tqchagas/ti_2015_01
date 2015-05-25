@@ -55,11 +55,11 @@ class Reserva_model extends CI_Model
 	}
 
 	public function alugado($data) {
-		$res = $this->db->query('SELECT id FROM `reserva_espaco` WHERE data_inicial >= ? OR data_final <= ? AND espaco_id = ?',
+		$res = $this->db->query('SELECT id FROM `reserva_espaco` WHERE (data_inicial >= ? OR data_final <= ?) AND espaco_id = ?',
 			(array(
 				'data_inicial' =>$data['data_inicial'],
 				'data_final' =>$data['data_final'],
-				'espaco'=> $data['espaco_id']
+				'espaco_id'=> $data['espaco_id']
 			))
 		)->row();
 		if (!$res) {
