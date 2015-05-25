@@ -1,5 +1,4 @@
 <h1 class="page-header">Pendentes Pagamento</h1>
-</a>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>

@@ -110,6 +110,23 @@ class Pagamento_model extends CI_Model {
 									where P.pago = 0')->result();
 	}
 
+	public function listar_pendencia_morador($id) {
+		return $this->db->query('SELECT
+									P.id AS id_pagamento,
+									P.periodo,
+									I.numero, 
+									I.bloco,
+									pessoa.nome
+										FROM pagamento P
+									JOIN morador M
+										ON P.morador_id = M.id
+									JOIN imovel I
+										ON M.imovel_id = I.id
+									JOIN pessoa
+										ON M.pessoa_id = pessoa.id
+									WHERE P.pago = 0 AND M.id = ?', array('id' => $id))->result();
+	}
+
 	public function ratear(){
 		$query = "SELECT (SUM(conta.valor)/(SELECT COUNT(imovel.id) FROM imovel)) as valor FROM conta WHERE conta.valor > 0";
 		return $this->db->query($query)->row();

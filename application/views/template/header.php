@@ -49,6 +49,7 @@
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('balancete')?>">Balancete</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('pagamento/relatorio_pendencia_pagamento')?>">Relatório pendência pagamento</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('pagamento/rateio')?>">Rateio de Despesas</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('nadaconsta')?>">Emitir "Nada Consta"</a></li>
 						</ul>
 					</li>
 					<li id="fat-menu" class="dropdown">
