@@ -1,5 +1,5 @@
 <?php
-class Balancetes_model extends CI_Model 
+class ParteBD_model extends CI_Model 
 {
 
 	public function __construct() 
@@ -10,7 +10,7 @@ class Balancetes_model extends CI_Model
 	// Seleciona o nome e o cargo de cada funcionário cadastrado no sistema.
 	public function dados_funcionario() 
 	{
-		return $this->db->query('SELECT P.nome, C.cargo
+		return $this->db->query('SELECT P.nome, C.descricao
 								FROM pessoa P
 								JOIN funcionario F
 									ON P.id = F.pessoa_id
@@ -21,7 +21,7 @@ class Balancetes_model extends CI_Model
 	}
 
 	// Seleciona o nome do morador, o número do imóvel e as datas de aluguel do salão de festa para cada morador que o alugou
-	public function dados_morador() 
+	/*public function dados_morador() 
 	{
 		return $this->db->query('SELECT P.nome, I.numero, SF.data_inicial inicio, SF.data_final termino
 								FROM pessoa P
@@ -31,7 +31,7 @@ class Balancetes_model extends CI_Model
 									ON P.id = M.pessoa_id
 								JOIN salao_festa SF
 									ON I.id = SF.imovel_alugado')->result();
-	}
+	}*/
 
 	// Projeta o nome do morador e o numero do imóvel com maior incidência de reclamações
 	public function reclamacoes_morador()
@@ -59,7 +59,7 @@ class Balancetes_model extends CI_Model
 	}
 
 	// Seleciona o número e o bloco do imóvel que possui salão de festas, mas que não possui ocorrências e reclamações.
-	public function morador_salao_reclamacoes()
+	/*public function morador_salao_reclamacoes()
 	{
 		return $this->db->query('SELECT I.numero, I.bloco
 								FROM Imovel I
@@ -70,11 +70,11 @@ class Balancetes_model extends CI_Model
 									FROM Imovel I
 								JOIN ocorrencia_reclamacoes ocr
 									ON I.id = ocr.imovel_id)')->result();
-	}
+	}*/
 
 
-	// Seleciona o número e o bloco do imóvel que possui salão de festas, mas que não possui ocorrências e reclamações.
-	public function morador_salao_reclamacoes()
+	// Seleciona nome e email da pessoa que é funcionário e morador
+	public function funcionario_morador()
 	{
 		return $this->db->query('SELECT p.nome, p.email
 								FROM pessoa AS p
@@ -160,7 +160,7 @@ class Balancetes_model extends CI_Model
 	}
 
 	// Seleciona o nome e cidade de todas as pessoas que possuem como cidade Belo Horizonte ou São Paulo.
-	public function moradores_bh_sp()
+	/*public function moradores_bh_sp()
 	{
 		return $this->db->query('SELECT p.nome, c.descricao
 								FROM pessoa AS p
@@ -169,9 +169,9 @@ class Balancetes_model extends CI_Model
 								INNER JOIN cidade as c
 								ON c.id = e.cidade_id
 								WHERE
-								c.descricao IN ('Belo Horizonte', 'São Paulo')')->result();
-	}
+								c.descricao IN ("Belo Horizonte", "São Paulo")')->result();
 
+	}*/
 
 	// Seleciona o nome e cfp de todos os moradores que possuem pagamentos pendentes entre os anos de 2000 e 2005
 	public function pagamento_pendente()
