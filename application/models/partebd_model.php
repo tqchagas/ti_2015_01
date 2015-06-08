@@ -21,17 +21,17 @@ class ParteBD_model extends CI_Model
 	}
 
 	// Seleciona o nome do morador, o número do imóvel e as datas de aluguel do salão de festa para cada morador que o alugou
-	/*public function dados_morador() 
+	public function dados_morador() 
 	{
-		return $this->db->query('SELECT P.nome, I.numero, SF.data_inicial inicio, SF.data_final termino
+		return $this->db->query('SELECT P.nome, I.numero, re.data_inicial inicio, re.data_final termino
 								FROM pessoa P
 								JOIN morador M
 									ON P.id = M.pessoa_id
 								JOIN imovel I
 									ON P.id = M.pessoa_id
-								JOIN salao_festa SF
-									ON I.id = SF.imovel_alugado')->result();
-	}*/
+								JOIN reserva_espaco re
+									ON I.id = re.imovel_id')->result();
+	}
 
 	// Projeta o nome do morador e o numero do imóvel com maior incidência de reclamações
 	public function reclamacoes_morador()
@@ -59,18 +59,19 @@ class ParteBD_model extends CI_Model
 	}
 
 	// Seleciona o número e o bloco do imóvel que possui salão de festas, mas que não possui ocorrências e reclamações.
-	/*public function morador_salao_reclamacoes()
+	public function morador_salao_reclamacoes()
 	{
 		return $this->db->query('SELECT I.numero, I.bloco
 								FROM Imovel I
-								JOIN salao_festa SF
-									ON SF.imovel_alugado = I.id AND I.id 
-								NOT IN 
+								JOIN reserva_espaco re
+									ON re.imovel_id = I.id 
+								AND 
+								I.id NOT IN 
 								(SELECT I.id
 									FROM Imovel I
 								JOIN ocorrencia_reclamacoes ocr
 									ON I.id = ocr.imovel_id)')->result();
-	}*/
+	}
 
 
 	// Seleciona nome e email da pessoa que é funcionário e morador
@@ -160,18 +161,18 @@ class ParteBD_model extends CI_Model
 	}
 
 	// Seleciona o nome e cidade de todas as pessoas que possuem como cidade Belo Horizonte ou São Paulo.
-	/*public function moradores_bh_sp()
+	public function moradores_bh_sp()
 	{
 		return $this->db->query('SELECT p.nome, c.descricao
 								FROM pessoa AS p
 								INNER JOIN endereco AS e
-								ON e.pessoa_id = p.id
+								ON e.id = p.endereco_id
 								INNER JOIN cidade as c
 								ON c.id = e.cidade_id
 								WHERE
 								c.descricao IN ("Belo Horizonte", "São Paulo")')->result();
 
-	}*/
+	}
 
 	// Seleciona o nome e cfp de todos os moradores que possuem pagamentos pendentes entre os anos de 2000 e 2005
 	public function pagamento_pendente()

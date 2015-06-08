@@ -20,7 +20,35 @@
             <tbody>
             </tbody>
         </table>
-</div>   
+</div> 
+
+
+
+<h4>Seleciona o nome do morador, o número do imóvel e as datas de aluguel do salão de festa para cada morador que o alugou</h4>
+<div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Número</th>
+                <th>Data inicio</th>
+                <th>Data término</th>
+            </tr>
+                <?foreach ($dados_morador as $d):?>
+                        <td><?=$d->nome?></td>
+                        <td><?=$d->numero?></td>
+                        <td><?=$d->inicio?></td>
+                        <td><?=$d->termino?></td>
+                    </tr>
+                <?endforeach?>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+</div> 
+
+
  
 <h4>Projeta o nome do morador e o numero do imóvel com maior incidência de reclamações</h4>
 <div class="table-responsive">
@@ -33,6 +61,27 @@
                 <?foreach ($reclamacoes_morador as $d):?>
                         <td><?=$d->nome?></td>
                         <td><?=$d->imovel?></td>
+                    </tr>
+                <?endforeach?>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+</div>
+
+
+<h4>Seleciona o número e o bloco do imóvel que possui salão de festas, mas que não possui ocorrências e reclamações</h4>
+<div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Número</th>
+                <th>Bloco</th>
+            </tr>
+                <?foreach ($morador_salao_reclamacoes as $d):?>
+                        <td><?=$d->numero?></td>
+                        <td><?=$d->bloco?></td>
                     </tr>
                 <?endforeach?>
             </tr>
