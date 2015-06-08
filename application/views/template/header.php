@@ -61,6 +61,30 @@
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('reclamacao')?>">Reclamações</a></li>
 						</ul>
 					</li>
+					<li id="fat-menu" class="dropdown">
+						<a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="true">
+							3º Entrega BD
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="drop4">
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/dados_funcionario')?>">Dados funcionário</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/dados_morador')?>">Dados morador</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/reclamacoes_morador')?>">Reclamações morador</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/morador_salao_reclamacoes')?>">Reclamações morador salão festas</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/funcionario_morador')?>">Funcionário morador</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/visitantes_morador')?>">Visitantes morador</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/imoveis_pagamento_pendente')?>">Imóveis pagamento pendente</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/morador_gastos')?>">Morador gastos</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/imovel_maior_numero_reclamacoes')?>">Imóvel maior número reclamações</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/morador_joao')?>">Morador João</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/moradores_bh_sp')?>">Moradores BH/SP</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/pagamento_pendente')?>">Pagamento pendente</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/imovel_visitantes_reclamacoes')?>">VIEW - Imóvel visitantes reclamações</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/pessoa_localizacao')?>">VIEW - Pessoa localização</a></li>
+
+
+						</ul>
+					</li>
 				</ul>
 			<!-- <form class="navbar-form navbar-right">
 				<input type="text" class="form-control" placeholder="Search...">

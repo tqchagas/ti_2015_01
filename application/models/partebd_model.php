@@ -185,4 +185,15 @@ class ParteBD_model extends CI_Model
 									ON M.id = Pa.morador_id
 								WHERE Pa.pago = 0 AND Pa.ANO BETWEEN 2000 AND 2005')->result();
 	}
+
+	public function imovel_visitantes_reclamacoes()
+	{
+		return $this->db->query('SELECT numero, reclamacoes FROM imovel_visitantes_reclamacoes');
+	}
+
+
+	public function pessoa_localizacao() 
+	{
+		return $this->db->query('SELECT * FROM pessoa_localizacao');
+	}
 }
