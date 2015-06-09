@@ -19,7 +19,7 @@ class ParteBD extends CI_Controller
 
     public function dados_morador()
     {
-        $data['page'] = 'partebd/index';
+        $data['page'] = 'partebd/dados_morador';
         $data['dados_morador'] = $this->bd->dados_morador();
         $this->load->view('template/template', $data);
     }

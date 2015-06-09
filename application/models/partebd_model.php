@@ -122,7 +122,7 @@ class ParteBD_model extends CI_Model
 									ON P.id = M.pessoa_id
 								JOIN imovel I
 									ON M.imovel_id = I.id
-								JOIN receita R
+								LEFT JOIN receita R
 									ON I.id = R.imovel_id
 								GROUP BY P.nome')->result();
 	}
@@ -188,12 +188,12 @@ class ParteBD_model extends CI_Model
 
 	public function imovel_visitantes_reclamacoes()
 	{
-		return $this->db->query('SELECT numero, reclamacoes FROM imovel_visitantes_reclamacoes');
+		return $this->db->query('SELECT numero, reclamacoes FROM imovel_visitantes_reclamacoes')->result();
 	}
 
 
 	public function pessoa_localizacao() 
 	{
-		return $this->db->query('SELECT * FROM pessoa_localizacao');
+		return $this->db->query('SELECT * FROM pessoa_localizacao')->result();
 	}
 }
