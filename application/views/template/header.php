@@ -75,7 +75,7 @@
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/visitantes_morador')?>">Visitantes morador</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/imoveis_pagamento_pendente')?>">Imóveis pagamento pendente</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/morador_gastos')?>">Morador gastos</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/imovel_maior_numero_reclamacoes')?>">Imóvel maior número reclamações</a></li>
+							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/imovel_maior_numero_reclamacoes')?>">Imóvel menor número reclamações</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/morador_joao')?>">Morador João</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/moradores_bh_sp')?>">Moradores BH/SP</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1" href="<?= base_url('partebd/pagamento_pendente')?>">Pagamento pendente</a></li>

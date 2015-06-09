@@ -38,7 +38,7 @@ class ParteBD_model extends CI_Model
 	{
 		return $this->db->query('SELECT P.nome, I.numero AS imovel
 								FROM pessoa P
-								JOIN Morador M
+								JOIN morador M
 									ON P.id = M.pessoa_id
 								JOIN imovel I
 									ON M.imovel_id = I.id
@@ -48,7 +48,7 @@ class ParteBD_model extends CI_Model
 									UNION
 								SELECT P.nome, I.numero AS imovel
 									FROM pessoa P
-								JOIN Morador M
+								JOIN morador M
 									ON P.id = M.pessoa_id
 								JOIN imovel I
 									ON M.imovel_id = I.id
@@ -62,13 +62,13 @@ class ParteBD_model extends CI_Model
 	public function morador_salao_reclamacoes()
 	{
 		return $this->db->query('SELECT I.numero, I.bloco
-								FROM Imovel I
+								FROM imovel I
 								JOIN reserva_espaco re
 									ON re.imovel_id = I.id 
 								AND 
 								I.id NOT IN 
 								(SELECT I.id
-									FROM Imovel I
+									FROM imovel I
 								JOIN ocorrencia_reclamacoes ocr
 									ON I.id = ocr.imovel_id)')->result();
 	}
@@ -104,7 +104,7 @@ class ParteBD_model extends CI_Model
 	{
 		return $this->db->query('SELECT P.nome, I.numero AS imovel, COUNT(Pag.id) * SUM(I.valor_condominio) AS pendente
 								FROM pessoa P
-								JOIN Morador M
+								JOIN morador M
 									ON P.id = M.pessoa_id
 								JOIN imovel I
 									ON M.imovel_id = I.id
@@ -118,7 +118,7 @@ class ParteBD_model extends CI_Model
 	{
 		return $this->db->query('SELECT P.nome, I.numero AS imovel, AVG(R.valor) media_gasto
 								FROM pessoa P
-								JOIN Morador M
+								JOIN morador M
 									ON P.id = M.pessoa_id
 								JOIN imovel I
 									ON M.imovel_id = I.id
@@ -130,21 +130,22 @@ class ParteBD_model extends CI_Model
 	// Seleciona o nome do morador, o número do imóvel e o número de reclamações dos imóveis com o menor número de reclamações
 	public function imovel_maior_numero_reclamacoes()
 	{
-		return $this->db->query('SELECT P.nome, I.numero AS imovel, COUNT(*) AS reclamacoes
-								FROM pessoa P
-								JOIN Morador M
-									ON P.id = M.pessoa_id
-								JOIN imovel I
-									ON M.imovel_id = I.id
-								JOIN ocorrencia_reclamacoes O
-									ON O.imovel_id = I.id
-								GROUP BY P.nome
-									HAVING COUNT(*) =
-								(
-								SELECT COUNT(DISTINCT(imovel_id)) count
-									FROM ocorrencia_reclamacoes
-								GROUP BY imovel_id
-									HAVING COUNT(count) = MIN(count)
+		return $this->db->query('SELECT P.nome, I.numero AS imovel, COUNT( * ) AS reclamacoes
+									FROM pessoa P
+								JOIN morador M ON P.id = M.pessoa_id
+									JOIN imovel I ON M.imovel_id = I.id
+								JOIN ocorrencia_reclamacoes O ON O.imovel_id = I.id
+									GROUP BY P.nome
+								HAVING COUNT( * ) = (
+
+								SELECT COUNT( * ) AS reclamacoes
+									FROM pessoa P
+								JOIN morador M ON P.id = M.pessoa_id
+									JOIN imovel I ON M.imovel_id = I.id
+								JOIN ocorrencia_reclamacoes O ON O.imovel_id = I.id
+									GROUP BY P.nome
+								ORDER BY reclamacoes ASC
+									LIMIT 1
 								)')->result();
 	}
 
@@ -153,7 +154,7 @@ class ParteBD_model extends CI_Model
 	{
 		return $this->db->query('SELECT P.nome, I.numero AS imovel
 								FROM pessoa P
-								JOIN Morador M
+								JOIN morador M
 									ON P.id = M.pessoa_id
 								JOIN imovel I
 									ON M.imovel_id = I.id
@@ -178,10 +179,10 @@ class ParteBD_model extends CI_Model
 	public function pagamento_pendente()
 	{
 		return $this->db->query('SELECT P.nome, P.cpf
-								FROM Pessoa P
-								JOIN Morador M
+								FROM pessoa P
+								JOIN morador M
 									ON P.id = M.pessoa_id
-								JOIN Pagamento Pa
+								JOIN pagamento Pa
 									ON M.id = Pa.morador_id
 								WHERE Pa.pago = 0 AND Pa.ANO BETWEEN 2000 AND 2005')->result();
 	}
